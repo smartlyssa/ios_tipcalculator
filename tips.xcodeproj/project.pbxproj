@@ -61,9 +61,9 @@
 		495BB5E51B9C1179007964CD = {
 			isa = PBXGroup;
 			children = (
+				495BB5EF1B9C1179007964CD /* Products */,
 				495BB5F01B9C1179007964CD /* tips */,
 				495BB6061B9C117B007964CD /* tipsTests */,
-				495BB5EF1B9C1179007964CD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
