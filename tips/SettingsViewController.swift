@@ -9,11 +9,28 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+  
+    
+    @IBOutlet var bluetoothSwitch: UISwitch!
+    @IBOutlet var defaultTipSegControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var defaultTipIndex : Int = 0
+        
+        if (defaults.objectForKey("defaultTipValue") != nil) {
+            defaultTipIndex = defaults.integerForKey("defaultTipValue")
+            println("defaultTipIndex: $\(defaultTipIndex)")
+        }
+        defaultTipSegControl.setEnabled(true, forSegmentAtIndex: defaultTipIndex)
+        
+        if (defaults.objectForKey("SwitchState") != nil) {
+            bluetoothSwitch.on = defaults.boolForKey("SwitchState")
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +51,25 @@ class SettingsViewController: UIViewController {
     @IBAction func goBack(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+  
+    
+    @IBAction func saveSwitchState(sender: AnyObject) {
+        var defaults = NSUserDefaults.standardUserDefaults()
+        
+        if bluetoothSwitch.on {
+            defaults.setBool(true, forKey: "SwitchState")
+        } else {
+            defaults.setBool(false, forKey: "SwitchState")
+        }
+    }
+    
+    @IBAction func changeDefaultTip(sender: AnyObject) {
+        var defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setInteger(defaultTipSegControl.selectedSegmentIndex, forKey: "defaultTipValue")
+        defaults.synchronize()
+        
+    }
+  
 
 }
