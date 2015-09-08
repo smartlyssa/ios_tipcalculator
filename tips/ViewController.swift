@@ -15,12 +15,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     
-    
+    var defaults = NSUserDefaults.standardUserDefaults()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        
+        setDefaultTipValue()
+        tipControl.selectedSegmentIndex = defaults.integerForKey("defaultTipValue")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,24 +54,33 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        println("view will appear")
-    }
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        println("view will appear")
+//    }
+//    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        println("view did appear")
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        println("view will disappear")
+//    }
+//    
+//    override func viewDidDisappear(animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        println("view did disappear")
+//    }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        println("view did appear")
-    }
+    func setDefaultTipValue() {
+        
+        if (defaults.objectForKey("defaultTipValue") != nil) {
+            defaults.setInteger(0, forKey: "defaultTipValue")
+            defaults.synchronize()
+        }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        println("view will disappear")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        println("view did disappear")
     }
     
     

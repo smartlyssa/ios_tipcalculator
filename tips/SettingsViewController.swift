@@ -9,9 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-  
-    
-    @IBOutlet var bluetoothSwitch: UISwitch!
+   
     @IBOutlet var defaultTipSegControl: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -22,14 +20,9 @@ class SettingsViewController: UIViewController {
         
         if (defaults.objectForKey("defaultTipValue") != nil) {
             defaultTipIndex = defaults.integerForKey("defaultTipValue")
-            println("defaultTipIndex: $\(defaultTipIndex)")
+            println("defaultTipIndex: \(defaultTipIndex)")
         }
-        defaultTipSegControl.setEnabled(true, forSegmentAtIndex: defaultTipIndex)
-        
-        if (defaults.objectForKey("SwitchState") != nil) {
-            bluetoothSwitch.on = defaults.boolForKey("SwitchState")
-        }
-        
+        defaultTipSegControl.selectedSegmentIndex = defaultTipIndex
         
     }
 
@@ -50,17 +43,6 @@ class SettingsViewController: UIViewController {
     */
     @IBAction func goBack(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
-    }
-  
-    
-    @IBAction func saveSwitchState(sender: AnyObject) {
-        var defaults = NSUserDefaults.standardUserDefaults()
-        
-        if bluetoothSwitch.on {
-            defaults.setBool(true, forKey: "SwitchState")
-        } else {
-            defaults.setBool(false, forKey: "SwitchState")
-        }
     }
     
     @IBAction func changeDefaultTip(sender: AnyObject) {
