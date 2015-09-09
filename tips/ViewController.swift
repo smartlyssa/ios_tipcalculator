@@ -23,7 +23,9 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
         
-        setDefaultTipValue()
+        if (defaults.objectForKey("defaultTipValue") != nil) {
+            setDefaultTipValue()
+        }
         tipControl.selectedSegmentIndex = defaults.integerForKey("defaultTipValue")
         
     }
@@ -54,16 +56,20 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 //        println("view will appear")
-//    }
-//    
+        if (defaults.objectForKey("defaultTipValue") != nil) {
+            tipControl.selectedSegmentIndex = defaults.integerForKey("defaultTipValue")
+        }
+    }
+//
 //    override func viewDidAppear(animated: Bool) {
 //        super.viewDidAppear(animated)
-//        println("view did appear")
+//        // println("view did appear")
+//        
 //    }
-//    
+//
 //    override func viewWillDisappear(animated: Bool) {
 //        super.viewWillDisappear(animated)
 //        println("view will disappear")
@@ -75,12 +81,8 @@ class ViewController: UIViewController {
 //    }
     
     func setDefaultTipValue() {
-        
-        if (defaults.objectForKey("defaultTipValue") != nil) {
-            defaults.setInteger(0, forKey: "defaultTipValue")
-            defaults.synchronize()
-        }
-    
+        defaults.setInteger(0, forKey: "defaultTipValue")
+        defaults.synchronize()
     }
     
     

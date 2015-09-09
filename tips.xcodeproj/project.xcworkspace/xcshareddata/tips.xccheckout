@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>B80FDFCB-15D4-4AF4-8FA4-A19DD547418F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>tips</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BCD652A7D31C1314533C00CF7C386B27A5955ADD</key>
 		<string>https://github.com/smartlyssa/ios_tipcalculator.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>tips.xcodeproj/project.xcworkspace</string>
+	<string>tips.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BCD652A7D31C1314533C00CF7C386B27A5955ADD</key>
