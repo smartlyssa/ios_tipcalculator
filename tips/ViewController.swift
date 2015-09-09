@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         }
         tipControl.selectedSegmentIndex = defaults.integerForKey("defaultTipValue")
         
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +62,10 @@ class ViewController: UIViewController {
 //        println("view will appear")
         if (defaults.objectForKey("defaultTipValue") != nil) {
             tipControl.selectedSegmentIndex = defaults.integerForKey("defaultTipValue")
+            onEditingChanged(self)
         }
+        billField.becomeFirstResponder()
+        
     }
 //
 //    override func viewDidAppear(animated: Bool) {
