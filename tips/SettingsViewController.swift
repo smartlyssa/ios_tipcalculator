@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
         
         if (defaults.objectForKey("defaultTipValue") != nil) {
             defaultTipIndex = defaults.integerForKey("defaultTipValue")
-            println("defaultTipIndex: \(defaultTipIndex)")
+            print("defaultTipIndex: \(defaultTipIndex)")
         }
         defaultTipSegControl.selectedSegmentIndex = defaultTipIndex
         

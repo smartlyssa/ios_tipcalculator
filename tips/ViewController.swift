@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         var tipPercentages = [0.18,0.2,0.22]
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
-        var billAmount = billField.text._bridgeToObjectiveC().doubleValue
+        var billAmount = billField.text!._bridgeToObjectiveC().doubleValue
         var tip = billAmount * tipPercentage
         var total = billAmount + tip
         
